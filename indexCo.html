@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комплектующие - TECH CORE</title>
+    <link rel="stylesheet" href="styleCo.css">
+</head>
+<body>
+    <!-- Прелоадер -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <p class="loader-text">Загрузка комплектующих...</p>
+        </div>
+    </div>
+
+    <!-- Корзина -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="cart-close" id="cartClose">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-content">
+            <div class="cart-empty" id="cartEmpty">
+                <div class="empty-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                        <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p>Ваша корзина пуста</p>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Товары будут добавляться сюда -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotalPrice">0 ₽</span>
+            </div>
+            <button class="btn btn-primary btn-large" id="checkoutBtn" disabled>
+                Перейти к оформлению
+            </button>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-top">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L13.09 8.26L20 9L14.55 13.47L16.18 20L12 16.77L7.82 20L9.45 13.47L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                        </svg>
+                        TECH CORE
+                    </a>
+                    <nav class="nav">
+                        <a href="index.html" class="nav-link">Конфигуратор</a>
+                        <a href="indexCo.html" class="nav-link active">Комплектующие</a>
+                        <a href="indexSupport.html" class="nav-link">Поддержка</a>
+                    </nav>
+                    <div class="header-actions">
+                        <button class="cart-btn" id="cartButton">
+                            <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="cart-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Комплектующие <span class="gradient-text">премиум</span> класса</h1>
+                        <p class="hero-subtitle">Более 500+ компонентов от ведущих производителей. Все в наличии с гарантией и быстрой доставкой.</p>
+                        <div class="hero-features">
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 12V8H4v4h16z" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>500+ компонентов</span>
+                            </div>
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Гарантия 2-5 лет</span>
+                            </div>
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Доставка за 1-3 дня</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="pc-showcase">
+                            <div class="pc-image">
+                                <div class="placeholder" style="width: 100%; height: 300px; background: linear-gradient(135deg, #2c3e50, #3498db); display: flex; align-items: center; justify-content: center; color: white; border-radius: 10px;">
+                                    <span>Комплектующие премиум-класса</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+       <!-- Filters Section -->
+<section class="filters-section">
+    <div class="container">
+        <div class="filters-container">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Поиск по названию или характеристикам...">
+                <button class="search-clear" id="searchClear">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label for="categoryFilter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 5px;">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Категория
+                    </label>
+                    <select id="categoryFilter">
+                        <option value="all">Все категории</option>
+                        <option value="cpu">💻 Процессоры</option>
+                        <option value="gpu">🎮 Видеокарты</option>
+                        <option value="motherboard">🔌 Материнские платы</option>
+                        <option value="ram">⚡ Оперативная память</option>
+                        <option value="storage">💾 Накопители</option>
+                        <option value="cooling">❄️ Охлаждение</option>
+                        <option value="psu">🔋 Блоки питания</option>
+                        <option value="case">🖥️ Корпуса</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="brandFilter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 5px;">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Бренд
+                    </label>
+                    <select id="brandFilter">
+                        <option value="all">Все бренды</option>
+                        <!-- Бренды будут заполнены через JS -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="priceFilter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 5px;">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Цена
+                    </label>
+                    <select id="priceFilter">
+                        <option value="all">Любая цена</option>
+                        <option value="0-10000">💰 До 10 000 ₽</option>
+                        <option value="10000-25000">💵 10 000 - 25 000 ₽</option>
+                        <option value="25000-50000">💎 25 000 - 50 000 ₽</option>
+                        <option value="50000-100000">💍 50 000 - 100 000 ₽</option>
+                        <option value="100000-999999">👑 От 100 000 ₽</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sortFilter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 5px;">
+                            <path d="M3 6h18M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Сортировка
+                    </label>
+                    <select id="sortFilter">
+                        <option value="default">📊 По умолчанию</option>
+                        <option value="price-asc">📈 Цена ↑</option>
+                        <option value="price-desc">📉 Цена ↓</option>
+                        <option value="name-asc">🔤 Название А-Я</option>
+                        <option value="name-desc">🔠 Название Я-А</option>
+                        <option value="popular">🔥 Популярные</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="active-filters" id="activeFilters">
+                <!-- Активные фильтры будут отображаться здесь -->
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Components Grid -->
+        <section class="components-grid-section">
+            <div class="container">
+                <div class="components-header">
+                    <h2 class="components-title">Каталог комплектующих</h2>
+                    <div class="components-count">
+                        Найдено: <span id="componentsCount">0</span> товаров
+                    </div>
+                </div>
+
+                <div class="components-container" id="componentsContainer">
+                    <!-- Компоненты будут загружены через JavaScript -->
+                </div>
+
+                <div class="load-more-container">
+                    <button class="btn btn-outline" id="loadMoreBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Показать еще
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Почему покупают у нас</h2>
+                    <p class="section-subtitle">Мы гарантируем качество и надежность каждого компонента</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Официальная гарантия</h3>
+                        <p>Все комплектующие поставляются с официальной гарантией производителя от 2 до 5 лет</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Быстрая доставка</h3>
+                        <p>Доставка по всей России. Самовывоз из 5+ пунктов выдачи в вашем городе</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Удобная оплата</h3>
+                        <p>Оплата картой, наличными, рассрочка или кредит. Без скрытых комиссий и переплат</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>TECH CORE</h3>
+                        <p>Создаем мощные игровые компьютеры с 2022 года</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Категории</h4>
+                        <ul>
+                            <li><a href="index.html">Конфигуратор ПК</a></li>
+                            <li><a href="indexCo.html">Комплектующие</a></li>
+                            <li><a href="indexSupport.html">Поддержка</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Поддержка</h4>
+                        <ul>
+                            <li><a href="indexSupport.html">Техническая поддержка</a></li>
+                            <li><a href="indexSupport.html">Гарантия и сервис</a></li>
+                            <li><a href="indexSupport.html">Доставка и оплата</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Контакты</h4>
+                        <ul>
+                         <li>+7 (962) 772-29-98</li>
+                            <li>max705800@mail.ru</li>
+                            <li>Нальчик, ул. Орджоникидзе, 172</li>
+                            <li>Пн-Пт: 10:00-22:00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 TECH CORE. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scriptCo.js"></script>
+</body>
+</html>

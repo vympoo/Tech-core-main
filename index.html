@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH CORE - Конфигуратор ПК</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Прелоадер -->
+  <div class="preloader">
+    <div class="preloader-content">
+        <div class="loader"></div>
+        <p class="loader-text">Загрузка TECH CORE...</p>
+    </div>
+</div>
+
+    <!-- Корзина -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="cart-close" id="cartClose">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-content">
+            <div class="cart-empty" id="cartEmpty">
+                <div class="empty-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                        <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p>Ваша корзина пуста</p>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Товары будут добавляться сюда -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotalPrice">0 ₽</span>
+            </div>
+            <button class="btn btn-primary btn-large" id="checkoutBtn" disabled>
+                Перейти к оформлению
+            </button>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-top">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L13.09 8.26L20 9L14.55 13.47L16.18 20L12 16.77L7.82 20L9.45 13.47L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                        </svg>
+                        TECH CORE
+                    </a>
+                    <nav class="nav">
+                        <a href="index.html" class="nav-link active">Конфигуратор</a>
+                        <a href="indexCo.html" class="nav-link">Комплектующие</a>
+                        <a href="indexSupport.html" class="nav-link">Поддержка</a>
+                    </nav>
+                    <div class="header-actions">
+                        <button class="cart-btn" id="cartButton">
+                            <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="cart-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Соберите компьютер <span class="gradient-text">мечты</span></h1>
+                        <p class="hero-subtitle">Профессиональный конфигуратор ПК с компонентами 2025 года. Подберите оптимальную конфигурацию для игр, работы или творчества.</p>
+                        <div class="hero-features">
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Топовые компоненты</span>
+                            </div>
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Гарантия 3 года</span>
+                            </div>
+                            <div class="feature">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Быстрая сборка</span>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="#configurator" class="btn btn-primary btn-large">
+                                <span>Начать сборку</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="pc-showcase">
+                            <div class="pc-image">
+                                <div class="placeholder" style="width: 100%; height: 300px; background: linear-gradient(135deg, #2c3e50, #3498db); display: flex; align-items: center; justify-content: center; color: white; border-radius: 10px;">
+                                    <span>Изображение компьютера</span>
+                                </div>
+                            </div>
+                            <div class="showcase-badge">
+                                <span class="badge">NEW</span>
+                                <span>RTX 50 Series Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Собранных ПК</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Довольных клиентов</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2 недели</div>
+                        <div class="stat-label">Гарантия</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configurator Section -->
+        <section class="configurator" id="configurator">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Конфигуратор ПК</h2>
+                    <p class="section-subtitle">Соберите свою идеальную систему шаг за шагом</p>
+                </div>
+
+                <!-- Steps Navigation -->
+                <div class="config-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-indicator">
+                            <div class="step-number">1</div>
+                            <div class="step-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <div class="step-label">Процессор</div>
+                            <div class="step-description">Выберите CPU</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-indicator">
+                            <div class="step-number">2</div>
+                            <div class="step-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <div class="step-label">Видеокарта</div>
+                            <div class="step-description">Выберите GPU</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-indicator">
+                            <div class="step-number">3</div>
+                            <div class="step-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <div class="step-label">Материнская плата</div>
+                            <div class="step-description">Выберите плату</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-indicator">
+                            <div class="step-number">4</div>
+                            <div class="step-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <div class="step-label">Память</div>
+                            <div class="step-description">Выберите RAM</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-indicator">
+                            <div class="step-number">5</div>
+                            <div class="step-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <div class="step-label">Накопители</div>
+                            <div class="step-description">Выберите SSD/HDD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configurator Content -->
+                <div class="config-content">
+                    <!-- Components Selector -->
+                    <div class="components-selector">
+                        <!-- CPU Category -->
+                        <div class="component-category active" id="category-cpu">
+                            <div class="category-header">
+                                <h3 class="category-title">Выберите процессор</h3>
+                                <div class="category-budget">
+                                    <span>Бюджет:</span>
+                                    <span class="budget-amount">100 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="components-grid">
+                                <!-- CPU components will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- GPU Category -->
+                        <div class="component-category" id="category-gpu">
+                            <div class="category-header">
+                                <h3 class="category-title">Выберите видеокарту</h3>
+                                <div class="category-budget">
+                                    <span>Бюджет:</span>
+                                    <span class="budget-amount">100 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="components-grid">
+                                <!-- GPU components will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Motherboard Category -->
+                        <div class="component-category" id="category-motherboard">
+                            <div class="category-header">
+                                <h3 class="category-title">Выберите материнскую плату</h3>
+                                <div class="category-budget">
+                                    <span>Бюджет:</span>
+                                    <span class="budget-amount">100 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="components-grid">
+                                <!-- Motherboard components will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- RAM Category -->
+                        <div class="component-category" id="category-ram">
+                            <div class="category-header">
+                                <h3 class="category-title">Выберите оперативную память</h3>
+                                <div class="category-budget">
+                                    <span>Бюджет:</span>
+                                    <span class="budget-amount">100 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="components-grid">
+                                <!-- RAM components will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Storage Category -->
+                        <div class="component-category" id="category-storage">
+                            <div class="category-header">
+                                <h3 class="category-title">Выберите накопитель</h3>
+                                <div class="category-budget">
+                                    <span>Бюджет:</span>
+                                    <span class="budget-amount">100 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="components-grid">
+                                <!-- Storage components will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Config Summary -->
+                    <div class="config-summary">
+                        <div class="summary-header">
+                            <h3>Ваша конфигурация</h3>
+                            <div class="summary-actions">
+                                <button class="summary-action-btn" id="save-config" title="Сохранить конфигурацию">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="17 21 17 13 7 13 7 21" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="7 3 7 8 15 8" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                                <button class="summary-action-btn" id="share-config" title="Поделиться конфигурацией">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="summary-content">
+                            <div class="summary-list">
+                                <div class="summary-item" data-component="cpu">
+                                    <div class="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                            <rect x="8" y="8" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M8 4V2M16 4V2M8 22V20M16 22V20M4 8H2M4 16H2M22 8H20M22 16H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-name">Процессор</div>
+                                        <div class="item-value">Не выбрано</div>
+                                    </div>
+                                    <div class="item-price">0 ₽</div>
+                                </div>
+                                <div class="summary-item" data-component="gpu">
+                                    <div class="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M8 8H16V16H8z" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M12 8V16" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M8 12H16" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-name">Видеокарта</div>
+                                        <div class="item-value">Не выбрано</div>
+                                    </div>
+                                    <div class="item-price">0 ₽</div>
+                                </div>
+                                <div class="summary-item" data-component="motherboard">
+                                    <div class="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                            <circle cx="8" cy="8" r="1" fill="currentColor"/>
+                                            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+                                            <circle cx="16" cy="8" r="1" fill="currentColor"/>
+                                            <circle cx="8" cy="12" r="1" fill="currentColor"/>
+                                            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                                            <circle cx="16" cy="12" r="1" fill="currentColor"/>
+                                            <circle cx="8" cy="16" r="1" fill="currentColor"/>
+                                            <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                                            <circle cx="16" cy="16" r="1" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-name">Материнская плата</div>
+                                        <div class="item-value">Не выбрано</div>
+                                    </div>
+                                    <div class="item-price">0 ₽</div>
+                                </div>
+                                <div class="summary-item" data-component="ram">
+                                    <div class="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <rect x="4" y="4" width="16" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M8 8H16V16H8z" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M10 10H14V14H10z" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-name">Оперативная память</div>
+                                        <div class="item-value">Не выбрано</div>
+                                    </div>
+                                    <div class="item-price">0 ₽</div>
+                                </div>
+                                <div class="summary-item" data-component="storage">
+                                    <div class="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <rect x="4" y="4" width="16" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M8 8H16V16H8z" stroke="currentColor" stroke-width="1.5"/>
+                                            <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-name">Накопитель</div>
+                                        <div class="item-value">Не выбрано</div>
+                                    </div>
+                                    <div class="item-price">0 ₽</div>
+                                </div>
+                            </div>
+
+                            <div class="summary-total">
+                                <div class="total-line">
+                                    <span>Стоимость компонентов:</span>
+                                    <span id="components-total">0 ₽</span>
+                                </div>
+                                <div class="total-line">
+                                    <span>Сборка и тестирование:</span>
+                                    <span>5 000 ₽</span>
+                                </div>
+                                <div class="total-main">
+                                    <span>Итого:</span>
+                                    <span id="total-price">5 000 ₽</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-actions-main">
+                            <button class="btn btn-secondary" id="reset-config">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M3 3v5h5" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Сбросить
+                            </button>
+                            <button class="btn btn-primary" id="add-to-cart">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Добавить в корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>TECH CORE</h3>
+                        <p>Создаем мощные игровые компьютеры с 2022 года</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Категории</h4>
+                        <ul>
+                            <li><a href="index.html">Конфигуратор ПК</a></li>
+                            <li><a href="indexCo.html">Комплектующие</a></li>
+                            <li><a href="indexSupport.html">Поддержка</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Поддержка</h4>
+                        <ul>
+                            <li><a href="indexSupport.html">Техническая поддержка</a></li>
+                            <li><a href="indexSupport.html">Гарантия и сервис</a></li>
+                            <li><a href="indexSupport.html">Доставка и оплата</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Контакты</h4>
+                        <ul>
+                            <li>+7 (962) 772-29-98</li>
+                            <li>max705800@mail.ru</li>
+                            <li>Нальчик, ул. Орджоникидзе, 172</li>
+                            <li>Пн-Пт: 10:00-22:00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 TECH CORE. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
